@@ -1,0 +1,80 @@
+<div class="main_content">
+  <div class="books_div">
+    {{#each currency_one}}
+
+     <div id="one_book" class="one_book">
+      <img class="img_currency" src=" {{picture}} " alt="">
+      <div class="currency_info">
+        <span class="title" > {{title}} </span>
+        <table class="currency_table">
+          <tr>
+            <th>Avrage bank currency</th>
+            <th>NBU</th>
+            <th>Black market</th>
+          </tr>
+
+          <tr id="{{ _id }}from" class="info_from_data">
+            <td> {{currency_to_grn}} / {{currency_to_grn_sell}}
+            </td>
+            <td>{{NBU}}</td>
+            <td>{{black_market_buy}} / {{black_market_sell}}</td>
+          </tr>
+
+          <form action="/edit" method="post">
+            <tr id="{{ _id }}to" class="info_to_data">
+              <td><input name="id" type="hidden" value="{{ _id }}" > <input name="currency_to_grn" value="{{currency_to_grn}}" type="text">  / <input name="currency_to_grn_sell" value="{{currency_to_grn_sell}}" type="text"></td>
+              <td><input name="NBU" value="{{NBU}}" type="text"> </td>
+              <td><input name="black_market_buy" value="{{black_market_buy}}" type="text">  / <input name="black_market_sell" value="{{black_market_sell}}" type="text"> </td><br>
+              <tr id="{{ _id }}save" class="info_to_data_submit">
+                <td><button type="submit">save</button></td>
+              </tr>  
+            </tr>
+          </form>
+
+        </table>
+      </div>
+      <button id="{{ _id }}" onClick = "getdetails(this)" class="edit_btn"> <img src="/img/edit.png" alt="none"></button>
+      <form action="/delete" method="post">
+        <input name="id_delete" value="{{ _id }}" type="hidden">
+        <button class="edit_btn"><img src="/img/bin.png" alt="none"></button>
+      </form>
+    </div>
+    {{/each}}
+    <div id="add_cur" class="add_cur">
+      <div class="circle">
+        <img src="/img/plus.png" alt="none">
+      </div>
+    </div>
+
+    <div class="add_div">
+      <form action="/add_cur" method="post" class="add_form">
+        <span>Додати елемент</span>
+        <div class="row_add_elem">
+          <span>title: </span>
+          <input name="add_title" type="text">
+          <span>img: </span>
+          <input name="add_img" type="text">
+        </div>
+        <div class="row_add_elem">
+          <span>currency_buy: </span>
+          <input name="add_currency_buy" type="text">
+          <span>currency_sell: </span>
+          <input name="add_currency_sell" type="text">
+        </div>
+        <div class="row_add_elem">
+          <span>dark_buy: </span>
+          <input name="add_dark_buy" type="text">
+          <span>dark_sell: </span>
+          <input name="add_dark_sell" type="text">
+        </div>
+        <div class="row_add_elem">
+          <span>NBU: </span>
+          <input name="add_NBU" type="text">
+        </div>
+        <button type="submit">Додати</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+<script src="/scripts/script.js"></script>
