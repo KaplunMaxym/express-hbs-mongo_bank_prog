@@ -27,7 +27,7 @@
               <td><input name="black_market_buy" value="{{black_market_buy}}" type="text">  / <input name="black_market_sell" value="{{black_market_sell}}" type="text"> </td><br>
               <tr id="{{ _id }}save" class="info_to_data_submit">
                 <td><button type="submit">save</button></td>
-              </tr>  
+              </tr>
             </tr>
           </form>
 
@@ -35,7 +35,7 @@
       </div>
       <button id="{{ _id }}" onClick = "getdetails(this)" class="edit_btn"> <img src="/img/edit.png" alt="none"></button>
       <form action="/delete" method="post">
-        <input name="id_delete" value="{{ _id }}" type="hidden">
+        <input name="id_delete" type="hidden" value="{{ _id }}">
         <button class="edit_btn"><img src="/img/bin.png" alt="none"></button>
       </form>
     </div>
