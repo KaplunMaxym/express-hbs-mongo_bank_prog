@@ -24,7 +24,6 @@ router.post('/edit', async(req, res) => {
 });
 
 router.post('/delete', async(req, res) => {
-  console.log(req.body.id_delete);
   await currency.deleteOne({_id: req.body.id_delete});
   res.redirect('/');
 });
